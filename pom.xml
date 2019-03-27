@@ -52,11 +52,11 @@
             <type>pom</type>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>2.3.3</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>log4j</groupId>
@@ -65,7 +65,7 @@
         </dependency>
 
         <!-- test dependencies, arquillian -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.6.4</version>
@@ -103,7 +103,7 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <version>2.19</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
         <!-- test dependencies, arquillian -->
     </dependencies>
 
@@ -133,27 +133,27 @@
                 <configuration>
                     <skip>${maven.test.skip}</skip>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>unpack</id>
-                        <phase>process-test-classes</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.wildfly</groupId>
-                                    <artifactId>wildfly-dist</artifactId>
-                                    <version>${version.wildfly}</version>
-                                    <type>zip</type>
-                                    <overWrite>false</overWrite>
-                                    <outputDirectory>${project.build.directory}</outputDirectory>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>unpack</id>-->
+                        <!--<phase>process-test-classes</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>unpack</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<artifactItems>-->
+                                <!--<artifactItem>-->
+                                    <!--<groupId>org.wildfly</groupId>-->
+                                    <!--<artifactId>wildfly-dist</artifactId>-->
+                                    <!--<version>${version.wildfly}</version>-->
+                                    <!--<type>zip</type>-->
+                                    <!--<overWrite>false</overWrite>-->
+                                    <!--<outputDirectory>${project.build.directory}</outputDirectory>-->
+                                <!--</artifactItem>-->
+                            <!--</artifactItems>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
             </plugin>
 
             <plugin>

@@ -1,3 +1,4 @@
+/*
 package cz.tomasdvorak;
 
 import cz.tomasdvorak.beans.TodoListService;
@@ -31,15 +32,19 @@ public class MultitenancyTest {
 
     private static final Logger logger = Logger.getLogger(MultitenancyTest.class);
 
-    /**
-    * url of running application servlet, injected by arquillian
     */
+/**
+    * url of running application servlet, injected by arquillian
+    *//*
+
     @ArquillianResource
     private URL deploymentUrl;
 
-    /**
+    */
+/**
      * Create arquillian deployment and start managed jboss server.
-     */
+     *//*
+
     @Deployment
     public static Archive<?> createDeployment() {
         final WebArchive archive = ShrinkWrap.create(WebArchive.class, "test.war")
@@ -84,11 +89,13 @@ public class MultitenancyTest {
         alicePort.insertItem("Learn react.js");
     }
 
-    /**
+    */
+/**
      * Verify, that read messages match expected
      * @param readTodoItems messages supplied by the webservice
      * @param expectedMessages expected set of messages
-     */
+     *//*
+
     private void verify(final List<TodoItem> readTodoItems, final String... expectedMessages) {
         Assert.assertNotNull(readTodoItems);
         final List<String> actualMessages = readTodoItems.stream().map(TodoItem::getText).collect(Collectors.toList());
@@ -96,12 +103,14 @@ public class MultitenancyTest {
         Assert.assertEquals(expected, actualMessages);
     }
 
-    /**
+    */
+/**
      * Connect to the SOAP CommunicationWebservice
 
      * @return port of the webservice
      * @throws MalformedURLException
-     */
+     *//*
+
     private TodoListService getServicePort(final String username, final String password) throws MalformedURLException {
         final QName serviceName = new QName("http://beans.tomasdvorak.cz/", "TodoListServiceImplService");
         final URL wsdlURL = new URL(deploymentUrl, "TodoListServiceImpl?wsdl");
@@ -115,3 +124,4 @@ public class MultitenancyTest {
     }
 
 }
+*/

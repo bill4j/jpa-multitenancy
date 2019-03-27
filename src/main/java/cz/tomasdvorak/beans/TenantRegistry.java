@@ -20,10 +20,11 @@ import java.util.*;
 @Startup
 public class TenantRegistry {
 
+
     /**
      * Default, container managed EntityManager
      */
-    @PersistenceContext
+    @PersistenceContext(unitName = "public")
     private EntityManager entityManager;
 
     private final Set<Tenant> tenants = new HashSet<>();
@@ -69,7 +70,7 @@ public class TenantRegistry {
         final Map<String, String> props = new TreeMap<>();
         logger.debug("Creating entity manager factory on schema '" + tenant.getSchemaName() + "' for tenant '" + tenant.getName() + "'.");
         props.put("hibernate.default_schema", tenant.getSchemaName());
-        return Persistence.createEntityManagerFactory("test", props);
+        return Persistence.createEntityManagerFactory("public", props);
     }
 
     public Optional<Tenant> getTenant(final String tenantName) {
