@@ -6,23 +6,21 @@
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
     <persistence-unit name="public" transaction-type="JTA">
         <jta-data-source>java:jboss/MySqlDS</jta-data-source>
-        <class>cz.tomasdvorak.entities.Tenant</class>
-        <class>cz.tomasdvorak.entities.TodoEntry</class>
+        <class>cz.tomasdvorak.model.Tenant</class>
+        <class>cz.tomasdvorak.model.TodoEntry</class>
         <properties>
-            <!--<property name="hibernate.connection.driver_class" value="org.gjt.mm.mysqlDriver" />-->
-            <!--<property name="hibernate.connection.username" value="root" />-->
-            <!--<property name="hibernate.connection.password" value="Bill6688.com" />-->
-            <!--<property name="hibernate.connection.url" value="jdbc.mysql://localhost:3306/public?useUnicode=true&amp;characterEncoding=UTF-8" />-->
-            <!--<property name="hibernate.max_fetch_depth" value="3" />-->
-            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.max_fetch_depth" value="3" />
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
         </properties>
     </persistence-unit>
 <!--<persistence-unit name="test" transaction-type="JTA">
     <jta-data-source>java:/arquillian</jta-data-source>
 
-    <class>cz.tomasdvorak.entities.Tenant</class>
-    <class>cz.tomasdvorak.entities.TodoEntry</class>
+    <class>cz.tomasdvorak.modelnant</class>
+    <class>cz.tomasdvorak.modeldoEntry</class>
 
     <properties>
         <property name="hibernate.show_sql" value="true"/>

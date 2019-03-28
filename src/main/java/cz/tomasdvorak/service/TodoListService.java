@@ -1,12 +1,10 @@
-package cz.tomasdvorak.beans;
+package cz.tomasdvorak.service;
 
 import cz.tomasdvorak.dto.TodoItem;
 import cz.tomasdvorak.exceptions.InvalidCredentialsException;
 
-import javax.jws.WebService;
 import java.util.List;
 
-@WebService
 public interface TodoListService {
     /**
      * Add an entry to currently logged tenant

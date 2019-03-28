@@ -7,8 +7,8 @@
 <persistence-unit name="test" transaction-type="JTA">
     <jta-data-source>jdbc/arquillian</jta-data-source>
 
-    <class>cz.tomasdvorak.entities.Tenant</class>
-    <class>cz.tomasdvorak.entities.TodoEntry</class>
+    <class>cz.tomasdvorak.model.Tenant</class>
+    <class>cz.tomasdvorak.model.TodoEntry</class>
 
     <properties>
         <property name="hibernate.show_sql" value="true"/>

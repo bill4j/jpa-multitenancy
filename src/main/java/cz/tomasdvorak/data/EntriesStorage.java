@@ -1,6 +1,6 @@
-package cz.tomasdvorak.beans;
+package cz.tomasdvorak.data;
 
-import cz.tomasdvorak.entities.TodoEntry;
+import cz.tomasdvorak.model.TodoEntry;
 
 import javax.ejb.Local;
 import java.util.List;

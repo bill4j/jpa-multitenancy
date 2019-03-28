@@ -1,7 +1,7 @@
 package cz.tomasdvorak.multitenancy;
 
-import cz.tomasdvorak.beans.TenantRegistry;
-import cz.tomasdvorak.entities.Tenant;
+import cz.tomasdvorak.util.TenantRegistry;
+import cz.tomasdvorak.model.Tenant;
 import org.apache.log4j.Logger;
 
 import javax.enterprise.context.RequestScoped;

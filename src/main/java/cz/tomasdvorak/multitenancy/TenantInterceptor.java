@@ -1,14 +1,11 @@
 package cz.tomasdvorak.multitenancy;
 
-import cz.tomasdvorak.beans.TenantRegistry;
 import cz.tomasdvorak.exceptions.InvalidCredentialsException;
+import cz.tomasdvorak.util.TenantRegistry;
 
-import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.InvocationContext;
-import javax.xml.ws.BindingProvider;
-import javax.xml.ws.WebServiceContext;
 import java.util.Map;
 
 /**
@@ -23,10 +20,12 @@ public class TenantInterceptor {
     public Object wrapWithTenant(final InvocationContext ctx) throws Exception {
 
         final Map<String, Object> msgContext = ctx.getContextData();
-        final String tenantName = (String)msgContext.get(BindingProvider.USERNAME_PROPERTY);
-        final String password = (String)msgContext.get(BindingProvider.PASSWORD_PROPERTY);
+//        final String tenantName = (String)msgContext.get(BindingProvider.USERNAME_PROPERTY);
+        final String tenantName = "Alice";
+//        final String password = (String)msgContext.get(BindingProvider.PASSWORD_PROPERTY);
+        final String password = "lorem";
 
-        verifyCredentials(tenantName, password);
+//        verifyCredentials(tenantName, password);
 
         final String oldValue = TenantHolder.getCurrentTenant();
         try {

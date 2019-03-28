@@ -1,4 +1,4 @@
-package cz.tomasdvorak.entities;
+package cz.tomasdvorak.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

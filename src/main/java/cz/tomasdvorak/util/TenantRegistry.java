@@ -1,6 +1,6 @@
-package cz.tomasdvorak.beans;
+package cz.tomasdvorak.util;
 
-import cz.tomasdvorak.entities.Tenant;
+import cz.tomasdvorak.model.Tenant;
 import org.apache.log4j.Logger;
 
 import javax.annotation.PostConstruct;
@@ -24,8 +24,8 @@ public class TenantRegistry {
     /**
      * Default, container managed EntityManager
      */
-    @PersistenceContext(unitName = "public")
-    private EntityManager entityManager;
+//    @PersistenceContext
+//    private EntityManager entityManager;
 
     private final Set<Tenant> tenants = new HashSet<>();
     private final Map<String, EntityManagerFactory> entityManagerFactories = new HashMap<>();
@@ -53,6 +53,10 @@ public class TenantRegistry {
     }
 
     private List<Tenant> loadTenantsFromDB() {
+        final Map<String, String> props = new TreeMap<>();
+        props.put("hibernate.default_schema", "public");
+         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("public", props);
+         EntityManager entityManager = entityManagerFactory.createEntityManager();
         final CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         final CriteriaQuery<Tenant> q = cb.createQuery(Tenant.class);
         final Root<Tenant> c = q.from(Tenant.class);
@@ -69,6 +73,7 @@ public class TenantRegistry {
     private EntityManagerFactory createEntityManagerFactory(final Tenant tenant) {
         final Map<String, String> props = new TreeMap<>();
         logger.debug("Creating entity manager factory on schema '" + tenant.getSchemaName() + "' for tenant '" + tenant.getName() + "'.");
+        //todo 这里可以根据属性配置文件，动态创建不同的数据源对应的工厂。
         props.put("hibernate.default_schema", tenant.getSchemaName());
         return Persistence.createEntityManagerFactory("public", props);
     }
